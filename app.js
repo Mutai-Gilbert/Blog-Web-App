@@ -1,17 +1,20 @@
 import express from "express";
 import { v4 as uuidv4 } from "uuid";
-import bodyParser from "body-parser"
+import bodyParser from "body-parser";
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
 app.set('view engine', 'ejs');
+
+// load assets
+
+app.use(express.static('public'));
 
 
 let blogPosts = [];
 
-// Set routes
+// Home routes
 
 app.get('/', (req, res) => {
     res.render('index', { blogPosts });
@@ -20,6 +23,7 @@ app.get('/', (req, res) => {
 app.get('/create', (req, res) => {
     res.render('create');
 });
+
 
 app.get('/post/:id', (req, res) => {
     const postId = req.params.id;
@@ -44,7 +48,7 @@ app.post('/create', (req, res) => {
 app.get('/edit/:id', (req, res) => {
     const postId = req.params.id;
     const postToEdit = blogPosts.find((post) => post.id === postId);
-    res.render('edit', { post: postToEdit});
+    res.render('edit', { post: postToEdit });
 });
 
 
@@ -64,6 +68,7 @@ app.delete('/post/:id', (req, res) => {
     const postToDelete = blogPosts.filter((post) => post.id !== postId);
     res.redirect('/');
 });
+
 
 const port = process.env.PORT || 3000;
 
