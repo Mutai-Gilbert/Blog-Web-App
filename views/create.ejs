@@ -3,18 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/assets/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Create a new Post</title>
 </head>
 <body>
-
-    <h1> Create a new Post</h1>
-
-    <form action="/create" method="post">
-        <input type="text" name="title" id="" placeholder="title">
-        <textarea name="content" id="" cols="30" rows="10" placeholder="Your post content"></textarea>
-        <button type="submit">Submit</button>
-    </form>
-    <a href="/"> Back to Blog</a>
+    <div>
+        <div class="d-flex p-5 w-100 flex-column mt-4">
+            <h1 class="font-bold mb-3 text-center">Create a new Post</h1>
+            <form action="/create" method="post">
+                <div class="mb-3">
+                    <div class="form-floating mb-3 mb-2 shadow-lg bg-body-tertiary">
+                        <input type="text" class="form-control" id="titleInput" name="title" placeholder="The title of the blog">
+                        <label for="titleInput">Title</label>
+                    </div>
+                    <div class="form-floating mb-3 rounded-pill shadow-lg bg-body-tertiary">
+                        <textarea class="form-control" name="content" placeholder="Your content of the blog" id="contentInput" style="height: 100px"></textarea>
+                        <label for="contentInput">Content</label>
+                    </div>
+                    <div class="d-flex align-items-center flex-column gap-4">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a href="/" class="btn btn-success">Back to Blog</a>
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+    </div>
 </body>
 </html>
