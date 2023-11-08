@@ -2,8 +2,8 @@
 
 body {
     --bs-body-font-family: var(--bs-font-monospace);
-    --bs-body-line-height: 1.4;
-    --bs-body-bg: var(--bs-gray-100);
+    /* --bs-body-line-height: 1.4;
+    --bs-body-bg: var(--bs-gray-100); */
     background-image: url('/assets/background_png.png');
     background-size: cover;
     background-repeat: no-repeat;
